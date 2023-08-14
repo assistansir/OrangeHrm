@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Myreport.html</title>
+    <link href="assets/style.css" rel="stylesheet" type="text/css"/></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) { // eslint-disable-line no-redeclare
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function findAll(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sortColumn(elem) {
+    toggleSortStates(elem);
+    const colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    let key;
+    if (elem.classList.contains('result')) {
+        key = keyResult;
+    } else if (elem.classList.contains('links')) {
+        key = keyLink;
+    } else {
+        key = keyAlpha;
+    }
+    sortTable(elem, key(colIndex));
+}
+
+function showAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(showExtras);
+}
+
+function hideAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(hideExtras);
+}
+
+function showExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.remove('collapsed');
+    expandcollapse.classList.remove('expander');
+    expandcollapse.classList.add('collapser');
+}
+
+function hideExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.add('collapsed');
+    expandcollapse.classList.remove('collapser');
+    expandcollapse.classList.add('expander');
+}
+
+function showFilters() {
+    let visibleString = getQueryParameter('visible') || 'all';
+    visibleString = visibleString.toLowerCase();
+    const checkedItems = visibleString.split(',');
+
+    const filterItems = document.getElementsByClassName('filter');
+    for (let i = 0; i < filterItems.length; i++) {
+        filterItems[i].hidden = false;
+
+        if (visibleString != 'all') {
+            filterItems[i].checked = checkedItems.includes(filterItems[i].getAttribute('data-test-result'));
+            filterTable(filterItems[i]);
+        }
+    }
+}
+
+function addCollapse() {
+    // Add links for show/hide all
+    const resulttable = find('table#results-table');
+    const showhideall = document.createElement('p');
+    showhideall.innerHTML = '<a href="javascript:showAllExtras()">Show all details</a> / ' +
+                            '<a href="javascript:hideAllExtras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    findAll('.col-result').forEach(function(elem) {
+        const collapsed = getQueryParameter('collapsed') || 'Passed';
+        const extras = elem.parentNode.nextElementSibling;
+        const expandcollapse = document.createElement('span');
+        if (extras.classList.contains('collapsed')) {
+            expandcollapse.classList.add('expander');
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add('collapsed');
+            expandcollapse.classList.add('expander');
+        } else {
+            expandcollapse.classList.add('collapser');
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener('click', function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains('collapsed')) {
+                showExtras(event.currentTarget);
+            } else {
+                hideExtras(event.currentTarget);
+            }
+        });
+    });
+}
+
+function getQueryParameter(name) {
+    const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () { // eslint-disable-line no-unused-vars
+    resetSortHeaders();
+
+    addCollapse();
+
+    showFilters();
+
+    sortColumn(find('.initial-sort'));
+
+    findAll('.sortable').forEach(function(elem) {
+        elem.addEventListener('click',
+            function() {
+                sortColumn(elem);
+            }, false);
+    });
+}
+
+function sortTable(clicked, keyFunc) {
+    const rows = findAll('.results-table-row');
+    const reversed = !clicked.classList.contains('asc');
+    const sortedRows = sort(rows, keyFunc, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    const thead = document.getElementById('results-table-head');
+    document.getElementById('results-table').remove();
+    const parent = document.createElement('table');
+    parent.id = 'results-table';
+    parent.appendChild(thead);
+    sortedRows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName('BODY')[0].appendChild(parent);
+}
+
+function sort(items, keyFunc, reversed) {
+    const sortArray = items.map(function(item, i) {
+        return [keyFunc(item), i];
+    });
+
+    sortArray.sort(function(a, b) {
+        const keyA = a[0];
+        const keyB = b[0];
+
+        if (keyA == keyB) return 0;
+
+        if (reversed) {
+            return keyA < keyB ? 1 : -1;
+        } else {
+            return keyA > keyB ? 1 : -1;
+        }
+    });
+
+    return sortArray.map(function(item) {
+        const index = item[1];
+        return items[index];
+    });
+}
+
+function keyAlpha(colIndex) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[colIndex].firstChild.data.toLowerCase();
+    };
+}
+
+function keyLink(colIndex) {
+    return function(elem) {
+        const dataCell = elem.childNodes[1].childNodes[colIndex].firstChild;
+        return dataCell == null ? '' : dataCell.innerText.toLowerCase();
+    };
+}
+
+function keyResult(colIndex) {
+    return function(elem) {
+        const strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+            'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[colIndex].firstChild.data);
+    };
+}
+
+function resetSortHeaders() {
+    findAll('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    findAll('.sortable').forEach(function(elem) {
+        const icon = document.createElement('div');
+        icon.className = 'sort-icon';
+        icon.textContent = 'vvv';
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove('desc', 'active');
+        elem.classList.add('asc', 'inactive');
+    });
+}
+
+function toggleSortStates(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        resetSortHeaders();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function isAllRowsHidden(value) {
+    return value.hidden == false;
+}
+
+function filterTable(elem) { // eslint-disable-line no-unused-vars
+    const outcomeAtt = 'data-test-result';
+    const outcome = elem.getAttribute(outcomeAtt);
+    const classOutcome = outcome + ' results-table-row';
+    const outcomeRows = document.getElementsByClassName(classOutcome);
+
+    for(let i = 0; i < outcomeRows.length; i++){
+        outcomeRows[i].hidden = !elem.checked;
+    }
+
+    const rows = findAll('.results-table-row').filter(isAllRowsHidden);
+    const allRowsHidden = rows.length == 0 ? true : false;
+    const notFoundMessage = document.getElementById('not-found-message');
+    notFoundMessage.hidden = !allRowsHidden;
+}
+</script>
+    <h1>Myreport.html</h1>
+    <p>Report generated on 11-Aug-2023 at 19:27:34 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <h2>Summary</h2>
+    <p>4 tests ran in 63.97 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable" col="duration">Duration</th>
+          <th class="sortable links" col="links">Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Testcases/test_addemp.py::Test_ADDEMP::test_add_emp_003</td>
+          <td class="col-duration">31.62</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">[gw0] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe<br/>[gw0] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe[gw0] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe[gw0] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe<br/> -----------------------------Captured stdout setup------------------------------ <br/>Launching Firefox Browser
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     Test_ADDEMP:test_addemp.py:24 Testcase test_add_emp_001 is started 
+INFO     Test_ADDEMP:test_addemp.py:25 Opening Browser
+INFO     Test_ADDEMP:test_addemp.py:27 page title isOrangeHRM
+INFO     Test_ADDEMP:test_addemp.py:30 Enter username
+INFO     Test_ADDEMP:test_addemp.py:32 Enter passwordAdmin
+INFO     Test_ADDEMP:test_addemp.py:34 Click on login buttonadmin123
+INFO     Test_ADDEMP:test_addemp.py:38 Clicking on pim button
+INFO     Test_ADDEMP:test_addemp.py:40 Clicking on Add button
+INFO     Test_ADDEMP:test_addemp.py:42 Enter firstname
+INFO     Test_ADDEMP:test_addemp.py:44 Enter middlename
+INFO     Test_ADDEMP:test_addemp.py:46 Enter lasttname
+INFO     Test_ADDEMP:test_addemp.py:49 Click on savebutton
+INFO     Test_ADDEMP:test_addemp.py:55 Taking screenshot<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Testcases/test_login.py::Test_Login::test_login_002</td>
+          <td class="col-duration">22.63</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">[gw1] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe<br/>[gw1] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe[gw1] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe[gw1] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe<br/> -----------------------------Captured stdout setup------------------------------ <br/>Launching Firefox Browser
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     Test_Login:test_login.py:52 Testcase test_page_title_001 is started 
+INFO     Test_Login:test_login.py:53 Opening Browser
+INFO     Test_Login:test_login.py:56 Opening Browser
+INFO     Test_Login:test_login.py:58 Enter username
+INFO     Test_Login:test_login.py:60 Enter passwordAdmin
+INFO     Test_Login:test_login.py:62 Click on login buttonadmin123
+INFO     Test_Login:test_login.py:65 Taking screenshot
+INFO     Test_Login:test_login.py:67 Click on menu button
+INFO     Test_Login:test_login.py:69 Click on logoutbutton button
+INFO     Test_Login:test_login.py:72 Testcase test_page_title_001 is passed
+
+INFO     Test_Login:test_login.py:79 Testcase test_addEmp_003_fail is completed<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Testcases/test_searchemp.py::Test_EMP_SEARCH::test_search_emp_004</td>
+          <td class="col-duration">24.07</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">[gw1] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe<br/>[gw1] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe[gw1] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe[gw1] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe<br/> -----------------------------Captured stdout setup------------------------------ <br/>Launching Firefox Browser
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     Test_EMP_SEARCH:test_searchemp.py:28 Testcase test_add_emp_001 is started 
+INFO     Test_EMP_SEARCH:test_searchemp.py:29 Opening Browser
+INFO     Test_EMP_SEARCH:test_searchemp.py:31 page title isOrangeHRM
+INFO     Test_EMP_SEARCH:test_searchemp.py:34 Enter username
+INFO     Test_EMP_SEARCH:test_searchemp.py:36 Enter passwordAdmin
+INFO     Test_EMP_SEARCH:test_searchemp.py:38 Click on login buttonadmin123
+INFO     Test_EMP_SEARCH:test_searchemp.py:42 Clicking on pim button
+INFO     Test_EMP_SEARCH:test_searchemp.py:45 Enter search no
+INFO     Test_EMP_SEARCH:test_searchemp.py:51 Taking screenshot<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">Testcases/test_login.py::Test_Login::test_page_title_001</td>
+          <td class="col-duration">23.34</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">[gw0] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe<br/>[gw0] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe[gw0] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe[gw0] win32 -- Python 3.11.4 D:\OrangeHrm\venv\Scripts\python.exe<br/> -----------------------------Captured stdout setup------------------------------ <br/>Launching Firefox Browser
+<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     Test_Login:test_login.py:25 Testcase test_page_title_001 is started 
+INFO     Test_Login:test_login.py:26 Opening Browser
+INFO     Test_Login:test_login.py:28 page title isOrangeHRM
+INFO     Test_Login:test_login.py:33 opening browser
+INFO     Test_Login:test_login.py:37 Taking screenshot
+INFO     Test_Login:test_login.py:39 Testcase test_page_title_001 is passed<br/></div></td></tr></tbody></table></body></html>

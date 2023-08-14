@@ -1,0 +1,9 @@
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:28 Testcase test_add_emp_001 is started 
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:29 Opening Browser
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:31 page title isOrangeHRM
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:34 Enter username
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:36 Enter passwordAdmin
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:38 Click on login buttonadmin123
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:42 Clicking on pim button
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:45 Enter search no
+[32mINFO    [0m Test_EMP_SEARCH:test_searchemp.py:51 Taking screenshot

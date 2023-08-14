@@ -1,0 +1,163 @@
+2023-08-13 00:20:56,843 : INFO : Test_ADDEMP : test_add_emp_003 : 25 : Testcase test_add_emp_001 is started 
+2023-08-13 00:20:56,844 : INFO : Test_ADDEMP : test_add_emp_003 : 26 : Opening Browser
+2023-08-13 00:20:56,846 : INFO : Test_ADDEMP : test_add_emp_003 : 28 : page title isOrangeHRM
+2023-08-13 00:20:57,858 : INFO : Test_ADDEMP : test_add_emp_003 : 31 : Enter username
+2023-08-13 00:20:58,210 : INFO : Test_ADDEMP : test_add_emp_003 : 33 : Enter passwordAdmin
+2023-08-13 00:20:58,240 : INFO : Test_ADDEMP : test_add_emp_003 : 35 : Click on login buttonadmin123
+2023-08-13 00:21:02,607 : INFO : Test_ADDEMP : test_add_emp_003 : 39 : Clicking on pim button
+2023-08-13 00:21:04,182 : INFO : Test_ADDEMP : test_add_emp_003 : 41 : Clicking on Add button
+2023-08-13 00:21:04,715 : INFO : Test_ADDEMP : test_add_emp_003 : 43 : Enter firstname
+2023-08-13 00:21:04,746 : INFO : Test_ADDEMP : test_add_emp_003 : 45 : Enter middlename
+2023-08-13 00:21:04,763 : INFO : Test_ADDEMP : test_add_emp_003 : 47 : Enter lasttname
+2023-08-13 00:21:10,025 : INFO : Test_ADDEMP : test_add_emp_003 : 55 : Click on savebutton
+2023-08-13 00:21:17,201 : INFO : Test_ADDEMP : test_add_emp_003 : 61 : Taking screenshot
+2023-08-13 00:21:17,201 : INFO : Test_ADDEMP : test_add_emp_003 : 69 : Testcase test_add_emp_003_pass is completed
+
+2023-08-13 00:21:28,524 : INFO : Test_Login : test_page_title_001 : 25 : Testcase test_page_title_001 is started 
+2023-08-13 00:21:28,524 : INFO : Test_Login : test_page_title_001 : 26 : Opening Browser
+2023-08-13 00:21:28,527 : INFO : Test_Login : test_page_title_001 : 28 : page title isOrangeHRM
+2023-08-13 00:21:32,829 : INFO : Test_Login : test_page_title_001 : 33 : opening browser
+2023-08-13 00:21:35,936 : INFO : Test_Login : test_page_title_001 : 37 : Taking screenshot
+2023-08-13 00:21:35,936 : INFO : Test_Login : test_page_title_001 : 39 : Testcase test_page_title_001 is passed
+2023-08-13 00:21:47,019 : INFO : Test_Login : test_login_002 : 52 : Testcase test_page_title_001 is started 
+2023-08-13 00:21:47,019 : INFO : Test_Login : test_login_002 : 53 : Opening Browser
+2023-08-13 00:21:47,019 : INFO : Test_Login : test_login_002 : 56 : Opening Browser
+2023-08-13 00:21:48,461 : INFO : Test_Login : test_login_002 : 58 : Enter username
+2023-08-13 00:21:48,517 : INFO : Test_Login : test_login_002 : 60 : Enter passwordAdmin
+2023-08-13 00:21:48,535 : INFO : Test_Login : test_login_002 : 62 : Click on login buttonadmin123
+2023-08-13 00:21:50,270 : INFO : Test_Login : test_login_002 : 65 : Taking screenshot
+2023-08-13 00:21:50,336 : INFO : Test_Login : test_login_002 : 67 : Click on menu button
+2023-08-13 00:21:50,556 : INFO : Test_Login : test_login_002 : 69 : Click on logoutbutton button
+2023-08-13 00:21:51,833 : INFO : Test_Login : test_login_002 : 78 : Testcase test_login_002_ is completed
+
+2023-08-13 00:22:03,420 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 28 : Testcase test_add_emp_001 is started 
+2023-08-13 00:22:03,422 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 29 : Opening Browser
+2023-08-13 00:22:03,423 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 31 : page title isOrangeHRM
+2023-08-13 00:22:05,349 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 34 : Enter username
+2023-08-13 00:22:05,397 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 36 : Enter passwordAdmin
+2023-08-13 00:22:05,419 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 38 : Click on login buttonadmin123
+2023-08-13 00:22:09,132 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 42 : Clicking on pim button
+2023-08-13 00:22:09,789 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 45 : Enter search no
+2023-08-13 00:22:10,752 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 51 : Taking screenshot
+2023-08-13 00:22:10,752 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 59 : Testcase test_addEmp_003_fail is completed
+
+2023-08-13 07:53:19,159 : INFO : Test_ADDEMP : test_add_emp_003 : 25 : Testcase test_add_emp_001 is started 
+2023-08-13 07:53:19,159 : INFO : Test_ADDEMP : test_add_emp_003 : 26 : Opening Browser
+2023-08-13 07:53:19,163 : INFO : Test_ADDEMP : test_add_emp_003 : 28 : page title isOrangeHRM
+2023-08-13 07:53:19,612 : INFO : Test_ADDEMP : test_add_emp_003 : 31 : Enter username
+2023-08-13 07:53:20,109 : INFO : Test_ADDEMP : test_add_emp_003 : 33 : Enter passwordAdmin
+2023-08-13 07:53:20,192 : INFO : Test_ADDEMP : test_add_emp_003 : 35 : Click on login buttonadmin123
+2023-08-13 07:53:22,930 : INFO : Test_ADDEMP : test_add_emp_003 : 39 : Clicking on pim button
+2023-08-13 07:53:24,177 : INFO : Test_ADDEMP : test_add_emp_003 : 41 : Clicking on Add button
+2023-08-13 07:53:24,768 : INFO : Test_ADDEMP : test_add_emp_003 : 43 : Enter firstname
+2023-08-13 07:53:24,867 : INFO : Test_ADDEMP : test_add_emp_003 : 45 : Enter middlename
+2023-08-13 07:53:24,942 : INFO : Test_ADDEMP : test_add_emp_003 : 47 : Enter lasttname
+2023-08-13 07:53:30,131 : INFO : Test_ADDEMP : test_add_emp_003 : 55 : Click on savebutton
+2023-08-13 07:53:33,625 : INFO : Test_ADDEMP : test_add_emp_003 : 61 : Taking screenshot
+2023-08-13 07:53:33,625 : INFO : Test_ADDEMP : test_add_emp_003 : 69 : Testcase test_add_emp_003_pass is completed
+
+2023-08-14 00:42:49,870 : INFO : Test_ADDEMP : test_add_emp_003 : 25 : Testcase test_add_emp_001 is started 
+2023-08-14 00:42:49,870 : INFO : Test_ADDEMP : test_add_emp_003 : 26 : Opening Browser
+2023-08-14 00:42:49,875 : INFO : Test_ADDEMP : test_add_emp_003 : 28 : page title isOrangeHRM
+2023-08-14 00:42:50,508 : INFO : Test_ADDEMP : test_add_emp_003 : 31 : Enter username
+2023-08-14 00:42:51,085 : INFO : Test_ADDEMP : test_add_emp_003 : 33 : Enter passwordAdmin
+2023-08-14 00:42:51,167 : INFO : Test_ADDEMP : test_add_emp_003 : 35 : Click on login buttonadmin123
+2023-08-14 00:42:54,088 : INFO : Test_ADDEMP : test_add_emp_003 : 39 : Clicking on pim button
+2023-08-14 00:42:55,238 : INFO : Test_ADDEMP : test_add_emp_003 : 41 : Clicking on Add button
+2023-08-14 00:42:55,762 : INFO : Test_ADDEMP : test_add_emp_003 : 43 : Enter firstname
+2023-08-14 00:42:55,833 : INFO : Test_ADDEMP : test_add_emp_003 : 45 : Enter middlename
+2023-08-14 00:42:55,893 : INFO : Test_ADDEMP : test_add_emp_003 : 47 : Enter lasttname
+2023-08-14 00:43:01,013 : INFO : Test_ADDEMP : test_add_emp_003 : 55 : Click on savebutton
+2023-08-14 00:43:04,432 : INFO : Test_ADDEMP : test_add_emp_003 : 61 : Taking screenshot
+2023-08-14 00:43:04,432 : INFO : Test_ADDEMP : test_add_emp_003 : 69 : Testcase test_add_emp_003_pass is completed
+
+2023-08-14 00:43:13,681 : INFO : Test_Login : test_page_title_001 : 25 : Testcase test_page_title_001 is started 
+2023-08-14 00:43:13,681 : INFO : Test_Login : test_page_title_001 : 26 : Opening Browser
+2023-08-14 00:43:13,688 : INFO : Test_Login : test_page_title_001 : 28 : page title isOrangeHRM
+2023-08-14 00:43:17,394 : INFO : Test_Login : test_page_title_001 : 33 : opening browser
+2023-08-14 00:43:20,708 : INFO : Test_Login : test_page_title_001 : 37 : Taking screenshot
+2023-08-14 00:43:20,708 : INFO : Test_Login : test_page_title_001 : 39 : Testcase test_page_title_001 is passed
+2023-08-14 00:43:27,128 : INFO : Test_Login : test_login_002 : 52 : Testcase test_page_title_001 is started 
+2023-08-14 00:43:27,128 : INFO : Test_Login : test_login_002 : 53 : Opening Browser
+2023-08-14 00:43:27,128 : INFO : Test_Login : test_login_002 : 56 : Opening Browser
+2023-08-14 00:43:27,550 : INFO : Test_Login : test_login_002 : 58 : Enter username
+2023-08-14 00:43:27,981 : INFO : Test_Login : test_login_002 : 60 : Enter passwordAdmin
+2023-08-14 00:43:28,060 : INFO : Test_Login : test_login_002 : 62 : Click on login buttonadmin123
+2023-08-14 00:43:29,591 : INFO : Test_Login : test_login_002 : 65 : Taking screenshot
+2023-08-14 00:43:29,915 : INFO : Test_Login : test_login_002 : 67 : Click on menu button
+2023-08-14 00:43:29,966 : INFO : Test_Login : test_login_002 : 69 : Click on logoutbutton button
+2023-08-14 00:43:30,981 : INFO : Test_Login : test_login_002 : 78 : Testcase test_login_002_ is completed
+
+2023-08-14 00:43:44,863 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 28 : Testcase test_add_emp_001 is started 
+2023-08-14 00:43:44,863 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 29 : Opening Browser
+2023-08-14 00:43:44,867 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 31 : page title isOrangeHRM
+2023-08-14 00:43:45,599 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 34 : Enter username
+2023-08-14 00:43:46,270 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 36 : Enter passwordAdmin
+2023-08-14 00:43:46,339 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 38 : Click on login buttonadmin123
+2023-08-14 00:43:49,040 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 42 : Clicking on pim button
+2023-08-14 00:43:49,510 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 45 : Enter search no
+2023-08-14 00:43:59,944 : INFO : Test_EMP_SEARCH : test_search_emp_004 : 57 : Taking screenshot og fail
+2023-08-14 00:45:30,458 : INFO : Test_Login : test_page_title_001 : 25 : Testcase test_page_title_001 is started 
+2023-08-14 00:45:30,490 : INFO : Test_Login : test_page_title_001 : 26 : Opening Browser
+2023-08-14 00:45:30,611 : INFO : Test_Login : test_page_title_001 : 28 : page title isOrangeHRM
+2023-08-14 00:45:31,858 : INFO : Test_Login : test_login_002 : 52 : Testcase test_page_title_001 is started 
+2023-08-14 00:45:31,860 : INFO : Test_Login : test_login_002 : 53 : Opening Browser
+2023-08-14 00:45:31,860 : INFO : Test_Login : test_login_002 : 56 : Opening Browser
+2023-08-14 00:45:32,551 : INFO : Test_Login : test_login_002 : 58 : Enter username
+2023-08-14 00:45:32,859 : INFO : Test_ADDEMP : test_add_emp_003 : 25 : Testcase test_add_emp_001 is started 
+2023-08-14 00:45:32,859 : INFO : Test_ADDEMP : test_add_emp_003 : 26 : Opening Browser
+2023-08-14 00:45:32,871 : INFO : Test_ADDEMP : test_add_emp_003 : 28 : page title isOrangeHRM
+2023-08-14 00:45:32,972 : INFO : Test_Login : test_login_002 : 60 : Enter passwordAdmin
+2023-08-14 00:45:33,038 : INFO : Test_Login : test_login_002 : 62 : Click on login buttonadmin123
+2023-08-14 00:45:33,434 : INFO : Test_ADDEMP : test_add_emp_003 : 31 : Enter username
+2023-08-14 00:45:33,727 : INFO : Test_ADDEMP : test_add_emp_003 : 33 : Enter passwordAdmin
+2023-08-14 00:45:33,817 : INFO : Test_ADDEMP : test_add_emp_003 : 35 : Click on login buttonadmin123
+2023-08-14 00:45:34,328 : INFO : Test_Login : test_page_title_001 : 33 : opening browser
+2023-08-14 00:45:34,825 : INFO : Test_Login : test_login_002 : 65 : Taking screenshot
+2023-08-14 00:45:35,154 : INFO : Test_Login : test_login_002 : 67 : Click on menu button
+2023-08-14 00:45:35,369 : INFO : Test_Login : test_login_002 : 69 : Click on logoutbutton button
+2023-08-14 00:45:36,682 : INFO : Test_ADDEMP : test_add_emp_003 : 39 : Clicking on pim button
+2023-08-14 00:45:36,734 : INFO : Test_Login : test_login_002 : 78 : Testcase test_login_002_ is completed
+
+2023-08-14 00:45:37,625 : INFO : Test_ADDEMP : test_add_emp_003 : 41 : Clicking on Add button
+2023-08-14 00:45:37,739 : INFO : Test_Login : test_page_title_001 : 37 : Taking screenshot
+2023-08-14 00:45:37,743 : INFO : Test_Login : test_page_title_001 : 39 : Testcase test_page_title_001 is passed
+2023-08-14 00:45:38,139 : INFO : Test_ADDEMP : test_add_emp_003 : 43 : Enter firstname
+2023-08-14 00:45:38,227 : INFO : Test_ADDEMP : test_add_emp_003 : 45 : Enter middlename
+2023-08-14 00:45:38,294 : INFO : Test_ADDEMP : test_add_emp_003 : 47 : Enter lasttname
+2023-08-14 00:45:43,463 : INFO : Test_ADDEMP : test_add_emp_003 : 55 : Click on savebutton
+2023-08-14 00:45:46,884 : INFO : Test_ADDEMP : test_add_emp_003 : 61 : Taking screenshot
+2023-08-14 00:45:46,884 : INFO : Test_ADDEMP : test_add_emp_003 : 69 : Testcase test_add_emp_003_pass is completed
+
+2023-08-14 09:45:19,274 : INFO : Test_Login : test_login_002 : 52 : Testcase test_page_title_001 is started 
+2023-08-14 09:45:19,274 : INFO : Test_Login : test_login_002 : 53 : Opening Browser
+2023-08-14 09:45:19,274 : INFO : Test_Login : test_login_002 : 56 : Opening Browser
+2023-08-14 09:45:19,653 : INFO : Test_Login : test_page_title_001 : 25 : Testcase test_page_title_001 is started 
+2023-08-14 09:45:19,653 : INFO : Test_Login : test_page_title_001 : 26 : Opening Browser
+2023-08-14 09:45:19,663 : INFO : Test_Login : test_page_title_001 : 28 : page title isOrangeHRM
+2023-08-14 09:45:19,777 : INFO : Test_Login : test_login_002 : 58 : Enter username
+2023-08-14 09:45:20,207 : INFO : Test_Login : test_login_002 : 60 : Enter passwordAdmin
+2023-08-14 09:45:20,299 : INFO : Test_Login : test_login_002 : 62 : Click on login buttonadmin123
+2023-08-14 09:45:20,505 : INFO : Test_ADDEMP : test_add_emp_003 : 25 : Testcase test_add_emp_001 is started 
+2023-08-14 09:45:20,506 : INFO : Test_ADDEMP : test_add_emp_003 : 26 : Opening Browser
+2023-08-14 09:45:20,517 : INFO : Test_ADDEMP : test_add_emp_003 : 28 : page title isOrangeHRM
+2023-08-14 09:45:21,269 : INFO : Test_ADDEMP : test_add_emp_003 : 31 : Enter username
+2023-08-14 09:45:21,684 : INFO : Test_ADDEMP : test_add_emp_003 : 33 : Enter passwordAdmin
+2023-08-14 09:45:21,800 : INFO : Test_ADDEMP : test_add_emp_003 : 35 : Click on login buttonadmin123
+2023-08-14 09:45:22,058 : INFO : Test_Login : test_login_002 : 65 : Taking screenshot
+2023-08-14 09:45:22,315 : INFO : Test_Login : test_login_002 : 67 : Click on menu button
+2023-08-14 09:45:22,554 : INFO : Test_Login : test_login_002 : 69 : Click on logoutbutton button
+2023-08-14 09:45:23,336 : INFO : Test_Login : test_login_002 : 78 : Testcase test_login_002_ is completed
+
+2023-08-14 09:45:23,641 : INFO : Test_Login : test_page_title_001 : 33 : opening browser
+2023-08-14 09:45:24,949 : INFO : Test_ADDEMP : test_add_emp_003 : 39 : Clicking on pim button
+2023-08-14 09:45:26,198 : INFO : Test_ADDEMP : test_add_emp_003 : 41 : Clicking on Add button
+2023-08-14 09:45:26,547 : INFO : Test_ADDEMP : test_add_emp_003 : 43 : Enter firstname
+2023-08-14 09:45:26,681 : INFO : Test_ADDEMP : test_add_emp_003 : 45 : Enter middlename
+2023-08-14 09:45:26,755 : INFO : Test_ADDEMP : test_add_emp_003 : 47 : Enter lasttname
+2023-08-14 09:45:26,944 : INFO : Test_Login : test_page_title_001 : 37 : Taking screenshot
+2023-08-14 09:45:26,944 : INFO : Test_Login : test_page_title_001 : 39 : Testcase test_page_title_001 is passed
+2023-08-14 09:45:31,859 : INFO : Test_ADDEMP : test_add_emp_003 : 55 : Click on savebutton
+2023-08-14 09:45:35,309 : INFO : Test_ADDEMP : test_add_emp_003 : 61 : Taking screenshot
+2023-08-14 09:45:35,309 : INFO : Test_ADDEMP : test_add_emp_003 : 69 : Testcase test_add_emp_003_pass is completed
+

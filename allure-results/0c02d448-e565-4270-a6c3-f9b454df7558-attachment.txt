@@ -1,0 +1,6 @@
+[32mINFO    [0m Test_Login:test_login.py:19 Testcase test_page_title_001 is started 
+[32mINFO    [0m Test_Login:test_login.py:20 Opening Browser
+[32mINFO    [0m Test_Login:test_login.py:22 page title isCredKart
+[32mINFO    [0m Test_Login:test_login.py:27 opening browser
+[32mINFO    [0m Test_Login:test_login.py:31 Taking screenshot
+[32mINFO    [0m Test_Login:test_login.py:33 Testcase test_page_title_001 is passed
